@@ -142,16 +142,12 @@ p {
 
 @media only screen and (max-width: 900px) {
     .row {
-        min-height: 720px;
         width: 100%;
-        margin: 0px auto 0px auto;
-        grid-auto-rows: 1fr;
-        grid-auto-flow: dense;
     }
 
     .left {
+        display: block;
         width: var(--mobile-card-width);
-        float: left;
         background-color: var(--bright-orange);
         padding: var(--padding-size);
         border-top-left-radius: var(--corner-radius);
@@ -159,15 +155,15 @@ p {
     }
     
     .mid {
+        display: block;
         width: var(--mobile-card-width);
-        float: left;
         background-color: var(--dark-cyan);
         padding: var(--padding-size);
     }
     
     .right {
+        display: block;
         width: var(--mobile-card-width);
-        float: left;
         background-color: var(--very-dark-cyan);
         padding: var(--padding-size);
         border-bottom-left-radius: var(--corner-radius);

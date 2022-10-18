@@ -142,14 +142,15 @@ p {
 
 @media only screen and (max-width: 900px) {
     .row {
-        width: 375px;
+        width: 100%;
+        max-width: 375px;
         margin: 25px 5px 25px 5px;
     }
 
     .left {
         display: block;
         width: var(--mobile-card-width);
-        max-width: 375px;
+        max-width: 360px;
         background-color: var(--bright-orange);
         padding: var(--padding-size);
         border-bottom-left-radius: none;
@@ -159,7 +160,7 @@ p {
     .mid {
         display: block;
         width: var(--mobile-card-width);
-        max-width: 375px;
+        max-width: 360px;
         background-color: var(--dark-cyan);
         padding: var(--padding-size);
     }
@@ -167,7 +168,7 @@ p {
     .right {
         display: block;
         width: var(--mobile-card-width);
-        max-width: 375px;
+        max-width: 360px;
         background-color: var(--very-dark-cyan);
         padding: var(--padding-size);
         border-top-right-radius: none;

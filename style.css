@@ -182,11 +182,11 @@ p {
     }
 
     .btn {
-        height: 3em;
+        height: 4em;
         font-family: var(--font-f1);
         font-size: 2em;
-        margin: 60px 60px 60px 0px;
-        border-radius: 1.5em;
+        margin: 10% 20% 20% 0%;
+        border-radius: 2em;
     }
 
   }

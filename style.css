@@ -142,8 +142,8 @@ p {
 
 @media only screen and (max-width: 900px) {
     .row {
-        width: 100%;
-        margin: 50px 5px 50px 5px;
+        width: 375px;
+        margin: 25px 5px 25px 5px;
     }
 
     .left {

@@ -38,6 +38,7 @@ p {
 }
 
 .row {
+    /* 3 columns in a row, use grid structure. */
     min-height: 720px;
     width: 60%;
     padding: 0px;
@@ -91,6 +92,7 @@ p {
     border-bottom-right-radius: var(--corner-radius);
 }
 
+/* In each grid column, using flex structure with four rows. */
 .row-1 {
     flex: 0 0 60px;
 }

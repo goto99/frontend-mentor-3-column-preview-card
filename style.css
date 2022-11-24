@@ -4,12 +4,9 @@
     --very-dark-cyan: hsl(179, 100%, 13%);
     --trans-white: hsla(0, 0%, 100%, 0.75);
     --very-light-gray: hsl(0, 0%, 95%);
-    --font-s: 15px;
+    --font-s: 1rem;
     --font-f1: 'Lexend Deca', sans-serif; 
     --font-f2: 'Big Shoulders Display', cursive;
-    --padding-size: 35px;
-    --pc-card-width: 33.33%;
-    --mobile-card-width: 100%;
     --corner-radius: 12px;
 }
 
@@ -20,13 +17,18 @@
 body {
     max-width: 1440px;
     background-color: var(--very-light-gray);
+
+    /* 2. Center content to the page using the following three lines code. Thanks to @vcarames */
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
 }
 
-h1 {
+h2 {
     font-family: var(--font-f2);
     font-weight: 700;
     color: var(--very-light-gray);
-    font-size: 2.4em;
+    font-size: 2.2rem;
     text-transform: uppercase;
 }
 
@@ -37,164 +39,117 @@ p {
     font-weight: 400;
 }
 
-.row {
-    /* 3 columns in a row, use grid structure. */
-    min-height: 720px;
-    width: 60%;
-    padding: 0px;
-    margin: 250px auto 250px auto;
-    grid-auto-rows: 1fr;
-    grid-auto-flow: dense;
-    border-radius: var(--corner-radius);
+@media(min-width: 360px) and (max-width: 767.98px){
+	/* For mobile screen */
+	.card-container{
+	    display: flex;
+		flex-direction: column;
+		border-radius: var(--corner-radius);
+	}
+	.card-sedans {
+		border-radius: initial;
+	    border-top-right-radius: var(--corner-radius);
+	}
+	.card-luxury {
+		border-radius: initial;
+	    border-bottom-left-radius: var(--corner-radius);
+	}
+}
+@media(min-width: 768px){
+	/* For PC screen */
+    .card-container{
+        display: flex;
+		flex-direction: row;
+		border-radius: var(--corner-radius);
+    }
+	.card-sedans {
+		border-radius: initial;
+	    border-bottom-left-radius: var(--corner-radius);
+	}
+	.card-luxury {
+		border-radius: initial;
+	    border-top-right-radius: var(--corner-radius);
+	}
 }
 
-/*The columns inside a row are all floating to the left, and are therefore taken out of the flow of the page, and other
- elements will be placed as if the columns do not exist. To prevent this, we will add a style that clears the flow:
-*/
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-
-.left {
+/* 7. Create a single class to manage the content that is mostly the same for 3 cards. Thanks to @correlucas.*/
+.card {
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    width: var(--pc-card-width);
-    float: left;
-    background-color: var(--bright-orange);
-    padding: var(--padding-size);
-    border-top-left-radius: var(--corner-radius);
-    border-bottom-left-radius: var(--corner-radius);
+	max-width: 16rem;
+	max-height: 54rem;
 }
-
-.mid {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: var(--pc-card-width);
-    float: left;
+.card-suvs {
     background-color: var(--dark-cyan);
-    padding: var(--padding-size);
-    overflow: hidden;
 }
-
-.right {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    width: var(--pc-card-width);
-    float: left;
+.card-sedans {
+    background-color: var(--bright-orange);
+    border-top-left-radius: var(--corner-radius);
+}
+.card-luxury {
     background-color: var(--very-dark-cyan);
-    padding: var(--padding-size);
-    border-top-right-radius: var(--corner-radius);
     border-bottom-right-radius: var(--corner-radius);
 }
 
 /* In each grid column, using flex structure with four rows. */
-.row-1 {
-    flex: 0 0 60px;
+.icon {
+    flex: 3;
+	margin: 2.5rem 2rem 1rem 2rem;
 }
-.row-2 {
-    flex: 0 0 40px;
+.name {
+    flex: 2;
+	margin: 0.8rem 2rem 0.8rem 2rem;
 }
-.row-3 {
-    flex: 0 0 100px;
+.desc {
+    flex: 8;
+	margin: 1rem 2rem 2rem 2rem;
 }
-.row-4 {
-    flex: 0 0 50px;
-}
-
 .btn {
-    border: none;
-    height: 25px;
+    flex: 2;
+    background-color: white;
+	border: 1px solid white;
     font-family: var(--font-f1);
-    font-size: 16px;
-    margin: 60px 60px 60px 0px;
-    border-radius: 25px;
+    font-size: 1rem;
+    margin: 2.5rem 6rem 2.5rem 2rem;
+    border-radius: 1.2rem;
+    line-height: 2.5rem;
+	text-decoration-line: none;
+	text-align: center;
+	vertical-align: middle;
 }
-
-.left > .btn:active {
+.card-sedans > .btn:active {
     border: 1px solid var(--very-light-gray);
     color: var(--very-light-gray);
     background-color: var(--bright-orange);
 }
 
-.mid > .btn:active {
+.card-suvs > .btn:active {
     border: 1px solid var(--very-light-gray);
     color: var(--very-light-gray);
     background-color: var(--dark-cyan);
 }
 
-.right > .btn:active {
+.card-luxury > .btn:active {
     border: 1px solid var(--very-light-gray);
     color: var(--very-light-gray);
     background-color: var(--very-dark-cyan);
 }
 
-.left > .btn {
+.card-sedans > .btn {
     color: var(--bright-orange);
 }
 
-.mid > .btn {
+.card-suvs > .btn {
     color: var(--dark-cyan);
 }
 
-.right > .btn {
+.card-luxury > .btn {
     color: var(--very-dark-cyan)
 }
 
-@media only screen and (max-width: 900px) {
-    .row {
-        width: 100%;
-        max-width: 375px;
-        margin: 25px 15px 25px 15px;
-        border-radius: var(--corner-radius);
-    }
-
-    .left {
-        display: block;
-        width: var(--mobile-card-width);
-        max-width: 360px;
-        background-color: var(--bright-orange);
-        padding: var(--padding-size);
-        border-radius: initial;
-        border-top-left-radius: var(--corner-radius);
-        border-top-right-radius: var(--corner-radius);
-    }
-    
-    .mid {
-        display: block;
-        width: var(--mobile-card-width);
-        max-width: 360px;
-        background-color: var(--dark-cyan);
-        padding: var(--padding-size);
-    }
-    
-    .right {
-        display: block;
-        width: var(--mobile-card-width);
-        max-width: 360px;
-        background-color: var(--very-dark-cyan);
-        padding: var(--padding-size);
-        border-radius: initial;
-        border-bottom-left-radius: var(--corner-radius);
-        border-bottom-right-radius: var(--corner-radius);
-    }
-
-    .btn {
-        height: 2em;
-        font-family: var(--font-f1);
-        font-size: 1.5em;
-        margin: 15% 10% 15% 0%;
-        border-radius: 2em;
-    }
-
-  }
-
 .attribution {
     display: none;
+    font-size: 11px; 
+    text-align: center; 
 }
-
-
+.attribution a { color: hsl(228, 45%, 44%); }

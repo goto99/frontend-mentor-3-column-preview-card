@@ -15,9 +15,7 @@
 }
 
 body {
-    max-width: 1440px;
     background-color: var(--very-light-gray);
-
     /* 2. Center content to the page using the following three lines code. Thanks to @vcarames */
     min-height: 100vh;
     display: grid;
